@@ -11,6 +11,8 @@ export default function CustomCursor() {
   const requestRef = useRef<number | null>(null);
   const previousTimeRef = useRef<number | null>(null);
   const maxTrailLength = 40; // Increase trail length for more pronounced curve effect
+  const cursorRef = useRef<HTMLDivElement | null>(null);
+  const animateId = useRef<number | null>(null);
 
   useEffect(() => {
     const mouseMoveHandler = (event: MouseEvent) => {
@@ -53,27 +55,39 @@ export default function CustomCursor() {
     };
   }, []);
 
-  // Animation loop for the trail effect
-  const animate = (time: number) => {
-    if (previousTimeRef.current !== null) {
-      // Add current position to trail
+  // Animation loop
+  useEffect(() => {
+    if (!cursorRef.current) return;
+
+    const animateCursor = () => {
+      if (!position || !isPointer) return;
+
+      if (cursorRef.current) {
+        // Set cursor position
+        cursorRef.current.style.transform = `translate3d(${position.x}px, ${position.y}px, 0)`;
+      }
+
+      // Store the position for the trail
       setTrail(prevTrail => {
-        const newTrail = [position, ...prevTrail].slice(0, maxTrailLength);
+        const newTrail = [...prevTrail];
+        newTrail.unshift({ x: position.x, y: position.y });
+        if (newTrail.length > maxTrailLength) {
+          newTrail.pop();
+        }
         return newTrail;
       });
-    }
-    previousTimeRef.current = time;
-    requestRef.current = requestAnimationFrame(animate);
-  };
 
-  useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate);
+      requestAnimationFrame(animateCursor);
+    };
+
+    animateId.current = requestAnimationFrame(animateCursor);
+
     return () => {
-      if (requestRef.current) {
-        cancelAnimationFrame(requestRef.current);
+      if (animateId.current) {
+        cancelAnimationFrame(animateId.current);
       }
     };
-  }, [position]);
+  }, [position, isPointer, maxTrailLength]);
 
   return (
     <>
@@ -149,6 +163,7 @@ export default function CustomCursor() {
           stiffness: 500,
           damping: 28,
         }}
+        ref={cursorRef}
       />
     </>
   );

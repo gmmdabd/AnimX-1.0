@@ -60,7 +60,7 @@ const ReviewCard = ({
         <StarRating rating={rating} />
       </div>
       
-      <p className="text-foreground italic mb-6 text-lg leading-relaxed">"{content}"</p>
+      <p className="text-foreground italic mb-6 text-lg leading-relaxed">&quot;{content}&quot;</p>
       
       <div className="flex items-center">
         <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-laser-color-1 to-laser-color-3 mr-4">

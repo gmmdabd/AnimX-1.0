@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import Image from 'next/image';
 
 export default function AboutSection() {
   const containerRef = useRef(null);
@@ -124,7 +123,7 @@ export default function AboutSection() {
               </motion.div>
               
               <motion.p variants={itemVariants} className="text-foreground text-lg mb-4">
-                We're a dedicated team of animation experts and developers passionate about creating fluid, engaging user experiences that captivate audiences and elevate digital products.
+                We are a dedicated team of animation experts and developers passionate about creating fluid, engaging user experiences that captivate audiences and elevate digital products.
               </motion.p>
               
               <motion.p variants={itemVariants} className="text-foreground text-lg mb-6">

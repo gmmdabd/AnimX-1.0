@@ -95,7 +95,7 @@ export default function Footer() {
               >
                 <h3 className="font-semibold mb-4 text-accent-light">{section.title}</h3>
                 <ul className="space-y-3">
-                  {section.links.map((link, linkIndex) => (
+                  {section.links.map((link) => (
                     <motion.li
                       key={link.name}
                       whileHover={{ x: 5 }}
