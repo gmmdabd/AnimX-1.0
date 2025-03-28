@@ -37,7 +37,7 @@ const FeatureCard = ({
         transition: { duration: 0.3 }
       }}
       viewport={{ once: true }}
-      style={{ '--animation-delay': `${index * 0.4}s` }}
+      data-animation-delay={`${index * 0.4}s`}
     >
       {/* Animated background element */}
       <div className="absolute -right-20 -bottom-20 w-40 h-40 rounded-full bg-accent/5 blur-xl group-hover:bg-accent/10 transition-all duration-700"></div>

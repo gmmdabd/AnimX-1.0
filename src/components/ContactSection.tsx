@@ -89,7 +89,7 @@ export default function ContactSection() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Have a project in mind? Reach out to us and let's create something amazing together.
+            Have a project in mind? Reach out to us and let&apos;s create something amazing together.
           </motion.p>
         </div>
 
@@ -174,7 +174,8 @@ export default function ContactSection() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               className="neon-border bg-gray/10 rounded-2xl shadow-2xl backdrop-blur-sm p-6 md:p-8"
-              style={{ '--animation-delay': '0.2s' }}
+              data-animation-delay="0.2s"
+              style={{ animationDelay: '0.2s' }}
             >
               {formState.formSubmitted ? (
                 <motion.div
@@ -189,7 +190,7 @@ export default function ContactSection() {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold mb-2 text-foreground">Message Sent!</h3>
-                  <p className="text-foreground/80">We'll get back to you as soon as possible.</p>
+                  <p className="text-foreground/80">We&apos;ll get back to you as soon as possible.</p>
                   <motion.button
                     className="mt-6 px-6 py-2 bg-gradient-to-r from-laser-color-1 via-laser-color-2 to-laser-color-3 text-white rounded-full font-medium shadow-lg shadow-accent/20"
                     whileHover={{ 

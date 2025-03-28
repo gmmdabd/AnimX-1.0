@@ -147,6 +147,40 @@ html {
   filter: blur(0.5px);
 }
 
+/* Add support for data-animation-delay attribute */
+.neon-border[data-animation-delay]::before {
+  animation-delay: var(--animation-delay);
+}
+
+/* Add for each of the possible animation delays we're using */
+.neon-border[data-animation-delay="0s"]::before {
+  animation-delay: 0s;
+}
+
+.neon-border[data-animation-delay="0.4s"]::before {
+  animation-delay: 0.4s;
+}
+
+.neon-border[data-animation-delay="0.8s"]::before {
+  animation-delay: 0.8s;
+}
+
+.neon-border[data-animation-delay="1.2s"]::before {
+  animation-delay: 1.2s;
+}
+
+.neon-border[data-animation-delay="1.6s"]::before {
+  animation-delay: 1.6s;
+}
+
+.neon-border[data-animation-delay="2s"]::before {
+  animation-delay: 2s;
+}
+
+.neon-border[data-animation-delay="0.2s"]::before {
+  animation-delay: 0.2s;
+}
+
 .neon-border::after {
   content: '';
   position: absolute;
