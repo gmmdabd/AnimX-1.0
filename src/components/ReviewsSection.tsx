@@ -54,7 +54,7 @@ const ReviewCard = ({
         y: -10,
         transition: { duration: 0.3 }
       }}
-      style={{ '--animation-delay': `${index * 0.4}s` } as React.CSSProperties}
+      data-animation-delay={`${index * 0.4}s`}
     >
       <div className="mb-4">
         <StarRating rating={rating} />
@@ -230,7 +230,7 @@ export default function ReviewsSection() {
                   y: -10,
                   transition: { duration: 0.3 }
                 }}
-                style={{ '--animation-delay': `${index * 0.3}s` } as React.CSSProperties}
+                data-animation-delay={`${index * 0.3}s`}
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="w-16 h-16 rounded-full bg-gray/20 flex items-center justify-center mb-5 text-accent-light">

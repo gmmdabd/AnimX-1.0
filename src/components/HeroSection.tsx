@@ -165,7 +165,7 @@ export default function HeroSection() {
                 type: "spring",
                 stiffness: 100
               }}
-              style={{ '--animation-delay': '0.2s' }}
+              data-animation-delay="0.2s"
             >
               {/* Decorative elements */}
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent/30 to-secondary/30 rounded-2xl transform rotate-3 animate-blob" />

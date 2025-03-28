@@ -79,7 +79,7 @@ export default function AboutSection() {
                 rotateX: 5,
                 transition: { duration: 0.5 }
               }}
-              style={{ '--animation-delay': '0.3s' }}
+              data-animation-delay="0.3s"
             >
               {/* Placeholder image - replace with your own */}
               <div className="aspect-[4/3] relative w-full bg-gradient-to-br from-accent/80 to-secondary/80">
